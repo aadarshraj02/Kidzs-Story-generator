@@ -69,7 +69,9 @@ const Header = () => {
         ))}
       </NavbarContent>
       <NavbarContent justify="end">
-        <Button color="primary">Get Started</Button>
+        <Link href={"/create-story"}>
+          <Button color="primary">Get Started</Button>
+        </Link>
       </NavbarContent>
       <NavbarMenu className="lg:hidden">
         {MenuList.map((item, index) => (
