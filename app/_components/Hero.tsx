@@ -1,5 +1,6 @@
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -14,13 +15,15 @@ const Hero = () => {
             adventures to life and spark their passion for reading. It only
             takes a few seconds!
           </p>
-          <Button
-            className="mt-5 font-bold p-8 text-2xl"
-            color="primary"
-            size="lg"
-          >
-            Create Story
-          </Button>
+          <Link href={"/create-story"}>
+            <Button
+              className="mt-5 font-bold p-8 text-2xl"
+              color="primary"
+              size="lg"
+            >
+              Create Story
+            </Button>
+          </Link>
         </div>
         <div>
           <Image
