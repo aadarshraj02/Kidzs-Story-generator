@@ -1,3 +1,4 @@
+import { Button } from "@nextui-org/button";
 import {
   Navbar,
   NavbarBrand,
@@ -25,17 +26,13 @@ const Header = () => {
       path: "/explore-stories",
     },
     {
-      name: "About Us",
-      path: "/about-us",
-    },
-    {
       name: "Contact Us",
       path: "/contact-us",
     },
   ];
 
   return (
-    <Navbar>
+    <Navbar maxWidth="full">
       <NavbarContent>
         <NavbarBrand>
           <Image src={"/assets/logo.svg"} alt="logo" width={40} height={40} />
@@ -46,10 +43,15 @@ const Header = () => {
       </NavbarContent>
       <NavbarContent justify="center">
         {MenuList.map((item, index) => (
-          <NavbarItem>
-            <Link href={item.path}>{item.name}</Link>
+          <NavbarItem key={index}>
+            <Link href={item.path} className="font-semibold px-4">
+              {item.name}
+            </Link>
           </NavbarItem>
         ))}
+      </NavbarContent>
+      <NavbarContent justify="end">
+        <Button color="primary">Get Started</Button>
       </NavbarContent>
     </Navbar>
   );
