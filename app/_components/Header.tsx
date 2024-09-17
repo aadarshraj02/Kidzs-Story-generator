@@ -1,6 +1,6 @@
 "use client";
 
-import { useUser } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@nextui-org/button";
 import {
   Navbar,
@@ -71,11 +71,12 @@ const Header = () => {
         ))}
       </NavbarContent>
       <NavbarContent justify="end">
-        <Link href={"/create-story"}>
+        <Link href={"/dashboard"}>
           <Button color="primary">
             {isSignedIn ? "Dashboard" : "Get Started"}
           </Button>
         </Link>
+        <UserButton />
       </NavbarContent>
       <NavbarMenu className="lg:hidden">
         {MenuList.map((item, index) => (
