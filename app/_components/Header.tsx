@@ -15,6 +15,9 @@ const Header = () => {
       <NavbarContent>
         <NavbarBrand>
           <Image src={"/assets/logo.svg"} alt="logo" width={40} height={40} />
+          <h2 className="font-bold text-2xl text-primary ml-3">
+            Kidz's Stories
+          </h2>
         </NavbarBrand>
       </NavbarContent>
     </Navbar>
