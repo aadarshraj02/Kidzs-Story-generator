@@ -14,7 +14,7 @@ const Header = () => {
     <Navbar>
       <NavbarContent>
         <NavbarBrand>
-          <Image src={"/assets/logo.svg"} alt="" />
+          <Image src={"/assets/logo.svg"} alt="logo" width={40} height={40} />
         </NavbarBrand>
       </NavbarContent>
     </Navbar>
