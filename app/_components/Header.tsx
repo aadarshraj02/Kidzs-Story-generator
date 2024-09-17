@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@nextui-org/button";
 import {
   Navbar,
@@ -10,6 +12,7 @@ import {
 } from "@nextui-org/navbar";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const Header = () => {
   const MenuList = [
@@ -31,20 +34,35 @@ const Header = () => {
     },
   ];
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <Navbar maxWidth="full">
+    <Navbar maxWidth="full" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="lg:hidden"
+        />
         <NavbarBrand>
-          <Image src={"/assets/logo.svg"} alt="logo" width={40} height={40} />
+          <Image
+            src={"/assets/logo.svg"}
+            alt="logo"
+            width={40}
+            height={40}
+            className="hidden  lg:flex"
+          />
           <h2 className="font-bold text-2xl text-primary ml-3">
             Kidz's Stories
           </h2>
         </NavbarBrand>
       </NavbarContent>
-      <NavbarContent justify="center">
+      <NavbarContent justify="center" className="hidden lg:flex">
         {MenuList.map((item, index) => (
           <NavbarItem key={index}>
-            <Link href={item.path} className="font-semibold px-4">
+            <Link
+              href={item.path}
+              className="font-semibold px-4 text-primary hover:underline transition-all ease-linear duration-200"
+            >
               {item.name}
             </Link>
           </NavbarItem>
@@ -53,6 +71,13 @@ const Header = () => {
       <NavbarContent justify="end">
         <Button color="primary">Get Started</Button>
       </NavbarContent>
+      <NavbarMenu className="lg:hidden">
+        {MenuList.map((item, index) => (
+          <NavbarMenuItem key={index}>
+            <Link href={item.path}>{item.name}</Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 };
