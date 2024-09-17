@@ -6,7 +6,7 @@ const Hero = () => {
     <div className="px-10 md:px-28 lg:px-44 mt-10 min-h-[93vh]">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div>
-          <h2 className="text-[70px] text-primary font-extrabold py-10">
+          <h2 className="text-[35px] md:text-[55px] lg:text-[70px] leading-tight text-primary font-extrabold py-5 lg:py-10">
             Craft Magical Stories for kids in Minutes
           </h2>
           <p className="text-2xl text-primary font-light">
