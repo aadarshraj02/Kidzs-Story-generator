@@ -1,5 +1,6 @@
 "use client";
 
+import { useUser } from "@clerk/nextjs";
 import { Button } from "@nextui-org/button";
 import {
   Navbar,
@@ -35,6 +36,7 @@ const Header = () => {
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, isSignedIn } = useUser();
 
   return (
     <Navbar maxWidth="full" onMenuOpenChange={setIsMenuOpen}>
@@ -70,7 +72,9 @@ const Header = () => {
       </NavbarContent>
       <NavbarContent justify="end">
         <Link href={"/create-story"}>
-          <Button color="primary">Get Started</Button>
+          <Button color="primary">
+            {isSignedIn ? "Dashboard" : "Get Started"}
+          </Button>
         </Link>
       </NavbarContent>
       <NavbarMenu className="lg:hidden">
