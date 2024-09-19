@@ -8,6 +8,7 @@ const CreateStory = () => {
         Unlock your creativity with AI: Craft stories like never existed. Let
         our AI bring your imagination to life, one story at a time.
       </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14"></div>
     </div>
   );
 };
