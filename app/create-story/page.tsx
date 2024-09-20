@@ -1,6 +1,7 @@
 "use client";
 
 import AgeGroup from "./_components/AgeGroup";
+import ImageStyle from "./_components/ImageStyle";
 import StorySubjectInput from "./_components/StorySubjectInput";
 import StoryType from "./_components/StoryType";
 
@@ -27,6 +28,7 @@ const CreateStory = () => {
         <StorySubjectInput userSelection={onHandleUserSelection} />
         <StoryType />
         <AgeGroup />
+        <ImageStyle />
       </div>
     </div>
   );
