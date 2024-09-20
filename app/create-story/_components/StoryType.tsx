@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 
 const StoryType = () => {
+  const [selectedOption, setSelectedOption] = useState<string>("");
+
   const OptionList = [
     {
       label: "Story Book",
@@ -28,7 +31,12 @@ const StoryType = () => {
         {OptionList.map((item, index) => (
           <div
             key={index}
-            className="relative mt-3 grayscale hover:grayscale-0 cursor-pointer"
+            className={`relative mt-3 hover:grayscale-0 cursor-pointer ${
+              selectedOption === item.label
+                ? "grayscale-0 scale-105"
+                : "grayscale"
+            }`}
+            onClick={() => setSelectedOption(item.label)}
           >
             <h2 className="absolute bottom-5 text-white text-center w-full text-2xl">
               {item.label}
