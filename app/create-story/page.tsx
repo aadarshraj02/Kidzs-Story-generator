@@ -1,5 +1,6 @@
 "use client";
 
+import AgeGroup from "./_components/AgeGroup";
 import StorySubjectInput from "./_components/StorySubjectInput";
 import StoryType from "./_components/StoryType";
 
@@ -25,6 +26,7 @@ const CreateStory = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14">
         <StorySubjectInput userSelection={onHandleUserSelection} />
         <StoryType />
+        <AgeGroup />
       </div>
     </div>
   );
