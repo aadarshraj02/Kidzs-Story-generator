@@ -1,3 +1,5 @@
+"use client";
+
 import StorySubjectInput from "./_components/StorySubjectInput";
 
 export interface fieldData {
