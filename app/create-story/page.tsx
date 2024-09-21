@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@nextui-org/button";
 import AgeGroup from "./_components/AgeGroup";
 import ImageStyle from "./_components/ImageStyle";
 import StorySubjectInput from "./_components/StorySubjectInput";
@@ -29,6 +30,15 @@ const CreateStory = () => {
         <StoryType userSelection={onHandleUserSelection} />
         <AgeGroup userSelection={onHandleUserSelection} />
         <ImageStyle userSelection={onHandleUserSelection} />
+      </div>
+      <div className="flex justify-end px-10">
+        <Button
+          className="mt-3 font-bold p-8 text-2xl"
+          color="primary"
+          size="lg"
+        >
+          Create Story
+        </Button>
       </div>
     </div>
   );
