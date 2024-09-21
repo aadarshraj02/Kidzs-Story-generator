@@ -2,9 +2,18 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { OptionField } from "./StoryType";
 
-const ImageStyle = () => {
+const ImageStyle = ({ userSelection }: any) => {
   const [selectedOption, setSelectedOption] = useState<string>("");
+
+  const onUserSelect = (item: OptionField) => {
+    setSelectedOption(item.label);
+    userSelection({
+      fieldValue: item?.label,
+      fieldName: "storyType",
+    });
+  };
 
   const OptionList = [
     {
@@ -33,7 +42,7 @@ const ImageStyle = () => {
     <div>
       <label className="font-bold text-4xl text-primary">4. Story Image</label>
       <div className="grid grid-cols-3 gap-3">
-        {OptionList.map((item, index) => (
+        {OptionList.map((item: OptionField, index) => (
           <div
             key={index}
             className={`relative mt-3 hover:grayscale-0 cursor-pointer ${
@@ -41,7 +50,7 @@ const ImageStyle = () => {
                 ? "grayscale-0 scale-105"
                 : "grayscale"
             }`}
-            onClick={() => setSelectedOption(item.label)}
+            onClick={() => onUserSelect(item)}
           >
             <h2 className="absolute bottom-5 text-white text-center w-full text-2xl">
               {item.label}
