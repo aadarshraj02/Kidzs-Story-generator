@@ -3,8 +3,22 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const StoryType = () => {
+export interface OptionField {
+  label: string;
+  imageUrl: string;
+  isFree: boolean;
+}
+
+const StoryType = ({ userSelection }: any) => {
   const [selectedOption, setSelectedOption] = useState<string>("");
+
+  const onUserSelect = (item: OptionField) => {
+    setSelectedOption(item.label);
+    userSelection({
+      fieldValue: item?.label,
+      fieldName: "storyType",
+    });
+  };
 
   const OptionList = [
     {
@@ -28,7 +42,7 @@ const StoryType = () => {
     <div>
       <label className="font-bold text-4xl text-primary">2.Story Type</label>
       <div className="grid grid-cols-3 gap-3">
-        {OptionList.map((item, index) => (
+        {OptionList.map((item: OptionField, index: number) => (
           <div
             key={index}
             className={`relative mt-3 hover:grayscale-0 cursor-pointer ${
@@ -36,7 +50,7 @@ const StoryType = () => {
                 ? "grayscale-0 scale-105"
                 : "grayscale"
             }`}
-            onClick={() => setSelectedOption(item.label)}
+            onClick={() => onUserSelect(item)}
           >
             <h2 className="absolute bottom-5 text-white text-center w-full text-2xl">
               {item.label}
