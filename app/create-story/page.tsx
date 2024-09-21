@@ -5,15 +5,27 @@ import AgeGroup from "./_components/AgeGroup";
 import ImageStyle from "./_components/ImageStyle";
 import StorySubjectInput from "./_components/StorySubjectInput";
 import StoryType from "./_components/StoryType";
+import { useState } from "react";
 
 export interface fieldData {
   fieldName: string;
-  fiendValue: string;
+  fieldValue: string;
+}
+export interface formDataType {
+  storySubject: string;
+  storyType: string;
+  imageStyle: string;
+  ageGroup: string;
 }
 
 const CreateStory = () => {
+  const [formData, setFormData] = useState<formDataType>();
+
   const onHandleUserSelection = (data: fieldData) => {
-    console.log(data);
+    setFormData((prev: any) => ({
+      ...prev,
+      [data.fieldName]: data.fieldValue,
+    }));
   };
 
   return (
