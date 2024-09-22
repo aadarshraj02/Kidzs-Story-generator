@@ -28,6 +28,10 @@ const CreateStory = () => {
     }));
   };
 
+  const generateStory = () => {
+    
+  };
+
   return (
     <div className="p-10 md:px-20 lg:px-40">
       <h2 className="uppercase font-extrabold text-primary text-center text-[5vw]">
@@ -48,6 +52,7 @@ const CreateStory = () => {
           className="mt-3 font-bold p-8 text-2xl"
           color="primary"
           size="lg"
+          onClick={generateStory}
         >
           Create Story
         </Button>
