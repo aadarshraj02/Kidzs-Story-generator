@@ -41,7 +41,8 @@ const CreateStory = () => {
       ?.replace("{imageStyle}", formData?.imageStyle ?? "");
 
     try {
-      const result = await chatSession.sendMessage();
+      // const result = await chatSession.sendMessage();
+      console.log(FINAL_PROMPT);
     } catch (error) {
       return error;
     }

@@ -16,7 +16,7 @@ const StorySubjectInput = ({ userSelection }: any) => {
         onChange={(e) =>
           userSelection({
             fieldValue: e.target.value,
-            fieldName: "input",
+            fieldName: "storySubject"
           })
         }
       />
