@@ -6,6 +6,9 @@ import ImageStyle from "./_components/ImageStyle";
 import StorySubjectInput from "./_components/StorySubjectInput";
 import StoryType from "./_components/StoryType";
 import { useState } from "react";
+import { chatSession } from "../config/GeminiAi";
+
+const CREATE_STORY_PROMPT = process.env.NEXT_PUBLIC_CREATE_STORY_PROMPT;
 
 export interface fieldData {
   fieldName: string;
@@ -28,8 +31,20 @@ const CreateStory = () => {
     }));
   };
 
-  const generateStory = () => {
-    
+  const generateStory = async () => {
+    const FINAL_PROMPT = CREATE_STORY_PROMPT?.replace(
+      "{ageGroup}",
+      formData?.ageGroup ?? ""
+    )
+      ?.replace("{storyType}", formData?.storyType ?? "")
+      ?.replace("{storySubject}", formData?.storySubject ?? "")
+      ?.replace("{imageStyle}", formData?.imageStyle ?? "");
+
+    try {
+      const result = await chatSession.sendMessage();
+    } catch (error) {
+      return error;
+    }
   };
 
   return (
