@@ -9,6 +9,8 @@ import { useState } from "react";
 import { chatSession } from "../config/GeminiAi";
 import { db } from "../config/db";
 import { StoryData } from "../config/schema";
+//@ts-ignore
+import uuid4 from "uuid4";
 
 const CREATE_STORY_PROMPT = process.env.NEXT_PUBLIC_CREATE_STORY_PROMPT;
 
@@ -47,7 +49,8 @@ const CreateStory = () => {
     try {
       const result = await chatSession.sendMessage(FINAL_PROMPT);
       console.log(result?.response.text());
-      saveInDB(result?.response.text());
+      const response = saveInDB(result?.response.text());
+      console.log(response);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -56,9 +59,28 @@ const CreateStory = () => {
   };
 
   const saveInDB = async (output: string) => {
-    const result = await db.insert(StoryData).values({
-
-    })
+    const recordId = uuid4();
+    setLoading(true);
+    try {
+      const result = await db
+        .insert(StoryData)
+        .values({
+          storyId: recordId,
+          ageGroup: formData?.ageGroup,
+          imageStyle: formData?.imageStyle,
+          storySubject: formData?.storySubject,
+          storyType: formData?.storyType,
+          output: JSON.parse(output),
+        })
+        .returning({
+          storyId: StoryData?.storyId,
+        });
+      setLoading(false);
+      return result;
+    } catch (error) {
+      setLoading(false);
+      return error;
+    }
   };
 
   return (
