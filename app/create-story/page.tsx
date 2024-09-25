@@ -7,6 +7,8 @@ import StorySubjectInput from "./_components/StorySubjectInput";
 import StoryType from "./_components/StoryType";
 import { useState } from "react";
 import { chatSession } from "../config/GeminiAi";
+import { db } from "../config/db";
+import { StoryData } from "../config/schema";
 
 const CREATE_STORY_PROMPT = process.env.NEXT_PUBLIC_CREATE_STORY_PROMPT;
 
@@ -45,11 +47,18 @@ const CreateStory = () => {
     try {
       const result = await chatSession.sendMessage(FINAL_PROMPT);
       console.log(result?.response.text());
+      saveInDB(result?.response.text());
       setLoading(false);
     } catch (error) {
       setLoading(false);
       return error;
     }
+  };
+
+  const saveInDB = async (output: string) => {
+    const result = await db.insert(StoryData).values({
+
+    })
   };
 
   return (
