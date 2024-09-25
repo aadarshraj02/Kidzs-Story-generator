@@ -23,6 +23,7 @@ export interface formDataType {
 
 const CreateStory = () => {
   const [formData, setFormData] = useState<formDataType>();
+  const [loading, setLoading] = useState(false);
 
   const onHandleUserSelection = (data: fieldData) => {
     setFormData((prev: any) => ({
@@ -32,6 +33,7 @@ const CreateStory = () => {
   };
 
   const generateStory = async () => {
+    setLoading(true);
     const FINAL_PROMPT = CREATE_STORY_PROMPT?.replace(
       "{ageGroup}",
       formData?.ageGroup ?? ""
@@ -41,9 +43,11 @@ const CreateStory = () => {
       ?.replace("{imageStyle}", formData?.imageStyle ?? "");
 
     try {
-      // const result = await chatSession.sendMessage();
-      console.log(FINAL_PROMPT);
+      const result = await chatSession.sendMessage(FINAL_PROMPT);
+      console.log(result?.response.text());
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       return error;
     }
   };
@@ -69,6 +73,7 @@ const CreateStory = () => {
           color="primary"
           size="lg"
           onClick={generateStory}
+          disabled={loading}
         >
           Create Story
         </Button>
