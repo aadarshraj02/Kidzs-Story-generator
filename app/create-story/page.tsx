@@ -11,6 +11,7 @@ import { db } from "../config/db";
 import { StoryData } from "../config/schema";
 //@ts-ignore
 import uuid4 from "uuid4";
+import CustomLoader from "./_components/CustomLoader";
 
 const CREATE_STORY_PROMPT = process.env.NEXT_PUBLIC_CREATE_STORY_PROMPT;
 
@@ -109,6 +110,7 @@ const CreateStory = () => {
           Create Story
         </Button>
       </div>
+      <CustomLoader />
     </div>
   );
 };
