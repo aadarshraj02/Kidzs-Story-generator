@@ -49,7 +49,7 @@ const CreateStory = () => {
     try {
       const result = await chatSession.sendMessage(FINAL_PROMPT);
       console.log(result?.response.text());
-      const response = saveInDB(result?.response.text());
+      const response = await saveInDB(result?.response.text());
       console.log(response);
       setLoading(false);
     } catch (error) {
