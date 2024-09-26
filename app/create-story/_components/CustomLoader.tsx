@@ -24,9 +24,7 @@ const CustomLoader = () => {
                 Modal Title
               </ModalHeader>
               <ModalBody>
-                <p></p>
-                <p></p>
-                <p></p>
+                
               </ModalBody>
             </>
           )}
