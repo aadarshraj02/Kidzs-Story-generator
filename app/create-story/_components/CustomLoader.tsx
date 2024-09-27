@@ -7,6 +7,7 @@ import {
   ModalFooter,
   useDisclosure,
 } from "@nextui-org/modal";
+import Image from "next/image";
 import { useEffect } from "react";
 const CustomLoader = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -20,11 +21,13 @@ const CustomLoader = () => {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
-              </ModalHeader>
               <ModalBody>
-                
+                <Image
+                  src={"/assets/loader.gif"}
+                  alt="loader"
+                  width={300}
+                  height={300}
+                />
               </ModalBody>
             </>
           )}
