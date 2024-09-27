@@ -110,7 +110,7 @@ const CreateStory = () => {
           Create Story
         </Button>
       </div>
-      <CustomLoader />
+      <CustomLoader isLoading={loading} />
     </div>
   );
 };
