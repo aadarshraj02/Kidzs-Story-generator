@@ -29,6 +29,9 @@ const CustomLoader = () => {
                   height={300}
                   className="w-[200px] h-[200px]"
                 />
+                <h2 className="text-2xl text-center">
+                  Please Wait, Story Generating...
+                </h2>
               </ModalBody>
             </>
           )}
