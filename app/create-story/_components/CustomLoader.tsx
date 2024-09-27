@@ -21,12 +21,13 @@ const CustomLoader = () => {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalBody>
+              <ModalBody className="p-10 w-full flex items-center justify-center">
                 <Image
                   src={"/assets/loader.gif"}
                   alt="loader"
                   width={300}
                   height={300}
+                  className="w-[200px] h-[200px]"
                 />
               </ModalBody>
             </>
