@@ -13,8 +13,7 @@ export async function POST(req: NextRequest) {
         model: "dev",
         width: 856,
         height: 1156,
-        prompt:
-          "a white-haired young woman wearing a flower crown, a very large fiery dragon, castle in the background, illustration in the style of WHMSCPE001",
+        prompt: "",
         lora_scale: 1,
         num_outputs: 1,
         aspect_ratio: "1:1",
