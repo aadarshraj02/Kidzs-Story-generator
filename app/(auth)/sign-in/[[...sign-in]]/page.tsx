@@ -10,7 +10,7 @@ export default function Page() {
           alt="login-image"
           width={700}
           height={400}
-          className="w-full"
+          className="w-full md:w-1/2"
         />
       </div>
       <div className="flex items-center justify-center h-screen order-first md:order-last">
